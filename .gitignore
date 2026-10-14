@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 .env
+konten/*/shorts/_cache/
+konten/*/shorts/pratinjau-*.png
