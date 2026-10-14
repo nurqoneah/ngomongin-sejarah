@@ -21,7 +21,7 @@ KREM = (252, 242, 218)
 
 class Kartun:
     def __init__(self, latar):
-        self.img = Image.new("RGBA", (S * SS, S * SS), latar + (255,))
+        self.img = Image.new("RGBA", (S * SS, S * SS), tuple(latar) + (() if len(latar) == 4 else (255,)))
         self.d = ImageDraw.Draw(self.img)
 
     def _b(self, box):
@@ -95,8 +95,9 @@ class Kartun:
         self.d.rectangle(((ex - 30) * SS, (y1 - 12) * SS, (ex + 30) * SS, (y1 - 3) * SS), fill=(255, 255, 255))
         self.teks(((x0 + x1) / 2, (y0 + y1) / 2), isi, ukuran, GARIS)
 
-    def hasil(self):
-        return self.img.resize((S, S), Image.LANCZOS).convert("RGB")
+    def hasil(self, rgba=False):
+        img = self.img.resize((S, S), Image.LANCZOS)
+        return img if rgba else img.convert("RGB")
 
 
 def mata(k: Kartun, x, y, r=48, lirik=(8, 6), kelopak=True, warna_kulit=None):

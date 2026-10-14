@@ -92,10 +92,12 @@ def maskot_peci():
 
 
 # 2 — Petualang: topi safari + peta
-def maskot_petualang():
-    k = Kartun((120, 200, 230))
-    k.sinar(C, 470, 24, 760, (150, 215, 240))
-    latar(k, (255, 200, 110))
+def maskot_petualang(penuh=True):
+    """penuh=False: karakter saja di latar transparan (buat banner / video)."""
+    k = Kartun((120, 200, 230) if penuh else (0, 0, 0, 0))
+    if penuh:
+        k.sinar(C, 470, 24, 760, (150, 215, 240))
+        latar(k, (255, 200, 110))
     khaki, tali = (200, 170, 110), (120, 80, 45)
     badan(k, khaki, (230, 210, 160))
     k.garis([(C - 110, 575), (C - 70, 850)], 16, tali)
@@ -113,6 +115,8 @@ def maskot_petualang():
     k.elips((C - 265, 215, C + 265, 300), khaki, 9)
     k.kotak((C - 170, 110, C + 170, 265), 70, khaki, 9)
     k.kotak((C - 172, 205, C + 172, 245), 6, tali, 7)
+    if not penuh:
+        return k.hasil(rgba=True)
     k.pita(880)
     return k.hasil()
 

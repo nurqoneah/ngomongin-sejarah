@@ -4,9 +4,10 @@
 
 | File | Dipakai untuk | Ukuran |
 |------|---------------|--------|
-| `foto-profil.png` | Foto profil IG, TikTok, FB, YouTube (dipotong bulat) | 1080×1080 |
+| `foto-profil.png` | Foto profil IG, TikTok, FB, YouTube: maskot petualang (dipotong bulat) | 1080×1080 |
 | `banner-youtube.png` | Banner channel YouTube | 2560×1440 |
 | `sampul-facebook.png` | Foto sampul Halaman FB | 1640×924 |
+| `maskot.png` | Maskot anak petualang (latar transparan), buat video / thumbnail / stiker | 1080×1080 |
 
 Bikin ulang: `python tools/buat_branding.py`
 
