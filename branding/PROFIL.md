@@ -50,31 +50,9 @@ Di sini kita ngobrolin sejarah dengan santai, kayak lagi cerita ke teman. Mulai 
 Punya request sejarah yang mau dibahas? Tulis di kolom komentar ya!
 ```
 
-## Postingan pertama: Perang Badar
+## Caption per video
 
-File: `konten/001-perang-badar/shorts/perang-badar-shorts.mp4`
-
-**Judul YouTube Shorts** (maks 100 karakter)
-```
-313 vs 1000: Kisah Perang Badar dalam 90 Detik #Shorts
-```
-
-**Caption IG / FB / TikTok**
-```
-313 orang. Cuma 2 kuda. Ngelawan 1000 pasukan bersenjata lengkap. ⚔️
-
-Ini kisah Perang Badar, 17 Ramadhan 2 H. Hari yang disebut Al-Qur'an sebagai Yaumul Furqan, hari pembeda.
-
-Bagian mana yang paling bikin kamu merinding? Tulis di komentar 👇
-Mau kita bahas sejarah apa lagi selanjutnya?
-
-#perangbadar #sejarahislam #sirahnabawiyah #ngomonginsejarah #sejarah #ramadhan #faktasejarah #islam #edukasi #fyp
-```
-
-Hashtag per platform:
-- **TikTok:** pakai 3–5 saja → `#perangbadar #sejarahislam #ngomonginsejarah #fyp #edukasi`
-- **YouTube:** `#Shorts #PerangBadar #SejarahIslam` (3 pertama tampil di atas judul)
-- **IG / FB Reels:** boleh 8–10 seperti di atas
+Setiap folder konten punya `caption.md` (YouTube, TikTok, IG, FB, Threads/X), misalnya [`konten/001-perang-badar/caption.md`](../konten/001-perang-badar/caption.md).
 
 ## Checklist bikin akun
 

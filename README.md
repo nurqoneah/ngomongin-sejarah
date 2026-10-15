@@ -16,6 +16,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 konten/
   001-perang-badar/
     naskah.md      # info, alur cerita, ide visual, rujukan
+    caption.md     # caption siap posting: YouTube, TikTok, IG, FB, Threads/X
     narasi.txt     # teks yang dibacakan (yang diubah jadi suara)
     audio/         # hasil MP3 + subtitle SRT
 tools/

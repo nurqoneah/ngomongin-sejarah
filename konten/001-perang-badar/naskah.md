@@ -39,3 +39,7 @@
 - Shahih Bukhari & Muslim (doa Rasulullah di malam Badar, kisah Mu'adz & Mu'awwidz)
 
 > Angka (jumlah pasukan, kuda, unta) berbeda sedikit antar riwayat; naskah memakai angka yang paling umum dikutip. Cek ulang sebelum publikasi.
+
+## Caption posting
+
+Lihat [`caption.md`](caption.md) — YouTube Shorts, TikTok, Instagram, Facebook, Threads/X.

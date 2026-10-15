@@ -38,20 +38,4 @@ Sumber: Simon Winchester, *Krakatoa: The Day the World Exploded* (2003); Royal S
 
 ## Caption posting
 
-**Judul YouTube Shorts**
-```
-Suara Ledakan Ini Kedengeran Sampai 4.800 KM! Letusan Krakatau 1883 #Shorts
-```
-
-**Caption IG / FB / TikTok**
-```
-BOOM! 💥 Suaranya kedengeran sampai 4.800 km, dan itu terjadi di Indonesia.
-
-27 Agustus 1883, Krakatau meletus. Tsunami 30 meter, 36 ribu jiwa, langit dunia jadi merah. Dan "anaknya" masih aktif sampai sekarang 🌋
-
-Inget ya: air laut surut tiba-tiba = langsung lari ke tempat tinggi!
-
-Mau kita bahas sejarah apa lagi? Tulis di komentar 👇
-
-#krakatau #letusankrakatau #sejarahindonesia #ngomonginsejarah #sejarah #faktasejarah #selatsunda #edukasi #fyp
-```
+Lihat [`caption.md`](caption.md) — YouTube Shorts, TikTok, Instagram, Facebook, Threads/X.

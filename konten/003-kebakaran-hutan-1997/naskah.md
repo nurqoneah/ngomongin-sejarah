@@ -37,20 +37,4 @@
 
 ## Caption posting
 
-**Judul YouTube Shorts**
-```
-Tahun 1997 Langit Asia Tenggara Jadi Kuning. Asapnya dari Indonesia #Shorts
-```
-
-**Caption IG / FB / TikTok**
-```
-1997: siang hari, tapi matahari kayak bulan pucat. Langit kuning, napas sesak. Dan asapnya… dari Indonesia 🔥
-
-10 juta hektar terbakar, kabutnya sampai Malaysia, Singapura, Brunei, dan Thailand. Karbonnya setara 13–40% emisi BBM seluruh dunia setahun 😳
-
-Kebakaran hutan bukan cuma soal pohon. Ini soal udara yang kita hirup bareng-bareng. Jangan bakar lahan ya 🙏
-
-Kamu pernah ngerasain kabut asap? Cerita di komentar 👇
-
-#kabutasap #kebakaranhutan #karhutla #sejarahindonesia #ngomonginsejarah #gambut #lingkungan #edukasi #fyp
-```
+Lihat [`caption.md`](caption.md) — YouTube Shorts, TikTok, Instagram, Facebook, Threads/X.
