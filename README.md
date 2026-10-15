@@ -8,6 +8,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 |----|-------|--------|
 | 001 | [Perang Badar](konten/001-perang-badar/naskah.md) | Naskah + audio panjang ✅ · Shorts 9:16 ✅ |
 | 002 | [Letusan Krakatau 1883](konten/002-letusan-krakatau/naskah.md) | Shorts 9:16 ✅ |
+| 003 | [Kebakaran Hutan & Kabut Asap 1997](konten/003-kebakaran-hutan-1997/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
