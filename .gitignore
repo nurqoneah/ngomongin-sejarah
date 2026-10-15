@@ -4,3 +4,4 @@ __pycache__/
 .env
 konten/*/shorts/_cache/
 konten/*/shorts/pratinjau-*.png
+app/dist/

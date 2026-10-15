@@ -1,0 +1,261 @@
+<title>Studio Posting Ngomongin Sejarah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500&family=Lilita+One&display=swap">
+<style>
+/* Layout: satu kolom ala aplikasi HP; beranda = daftar video, detail = pemutar + caption per platform */
+:root {
+  --langit: #7cc8e6;
+  --langit-tua: #2c7fa3;
+  --pita: #d63a30;
+  --pita-tua: #96221e;
+  --label: #ffcd3c;
+  --tinta: #2d1e19;
+  --bg: #eef6f9;
+  --permukaan: #ffffff;
+  --garis: #cfe0e8;
+  --redup: #5d6d74;
+  --ok: #2f8f5b;
+  --font-display: "Lilita One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --langit: #1d4f66; --langit-tua: #8fd3ef; --pita: #e5524a; --pita-tua: #ff8a80; --label: #ffd75e;
+    --tinta: #f2ebe6; --bg: #0e171c; --permukaan: #16232a; --garis: #26363e; --redup: #9fb1b8; --ok: #5cc48a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --langit: #1d4f66; --langit-tua: #8fd3ef; --pita: #e5524a; --pita-tua: #ff8a80; --label: #ffd75e;
+  --tinta: #f2ebe6; --bg: #0e171c; --permukaan: #16232a; --garis: #26363e; --redup: #9fb1b8; --ok: #5cc48a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--tinta); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 560px; margin: 0 auto; padding-inline: 16px; padding-block: 0 48px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, video:focus-visible { outline: 3px solid var(--label); outline-offset: 2px; }
+
+/* header */
+.atas { background: var(--langit); margin-inline: -16px; padding: 18px 16px 22px; display: flex; align-items: center; gap: 14px;
+  background-image: repeating-conic-gradient(from 0deg at 18% 120%, transparent 0 6deg, color-mix(in srgb, var(--permukaan) 18%, transparent) 6deg 12deg); }
+.atas img { width: 64px; height: auto; flex: none; }
+.atas h1 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; line-height: 1.05; letter-spacing: .5px; text-wrap: balance; }
+.atas h1 span { display: inline-block; background: var(--pita); color: #fff; padding: 2px 10px 0; border-radius: 6px; margin-top: 4px; }
+.atas p { margin: 4px 0 0; font-size: .9rem; color: var(--tinta); opacity: .85; }
+
+/* beranda */
+.ringkas { display: flex; gap: 10px; margin: 18px 0 10px; font-size: .9rem; color: var(--redup); }
+.daftar { display: grid; gap: 12px; }
+.item { display: grid; grid-template-columns: 76px 1fr; gap: 14px; align-items: center; width: 100%; text-align: left;
+  background: var(--permukaan); border: 1px solid var(--garis); border-radius: 14px; padding: 10px; }
+.item:hover { border-color: var(--langit-tua); }
+.item img { width: 76px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 8px; background: var(--garis); }
+.item .no { font-family: var(--font-mono); font-size: .8rem; color: var(--redup); letter-spacing: .5px; }
+.item h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; line-height: 1.15; text-wrap: balance; }
+.item .meta { min-width: 0; }
+.status { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: .75rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--garis); color: var(--redup); }
+.chip.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+/* detail */
+.kembali { background: none; border: 0; padding: 14px 0 10px; color: var(--langit-tua); font-weight: 700; display: inline-flex; gap: 6px; align-items: center; }
+.judul-detail { font-family: var(--font-display); font-weight: 400; font-size: 1.8rem; line-height: 1.1; margin: 0 0 12px; text-wrap: balance; }
+.pemutar { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 14px; align-items: start; }
+@media (max-width: 420px) { .pemutar { grid-template-columns: 1fr; } .pemutar video { max-height: 62vh; justify-self: center; width: auto; } }
+.pemutar video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 12px; }
+.aksi { display: grid; gap: 10px; min-width: 0; }
+.tombol { border: 0; border-radius: 10px; padding: 12px 14px; font-weight: 700; background: var(--pita); color: #fff; box-shadow: 0 3px 0 var(--pita-tua); }
+.tombol:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--pita-tua); }
+.tombol[disabled] { opacity: .6; cursor: progress; }
+.info { font-size: .85rem; color: var(--redup); }
+.info b { color: var(--tinta); }
+.cover { background: var(--label); color: #2d1e19; font-family: var(--font-display); font-size: 1.1rem; padding: 6px 10px; border-radius: 8px; display: inline-block; }
+
+.tab { display: flex; gap: 6px; overflow-x: auto; margin: 22px -16px 0; padding: 0 16px 2px; scrollbar-width: none; }
+.tab button { flex: none; border: 1px solid var(--garis); background: var(--permukaan); border-radius: 999px; padding: 7px 14px; font-weight: 700; font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+.tab button[aria-selected="true"] { background: var(--tinta); color: var(--bg); border-color: var(--tinta); }
+.tab .titik { width: 8px; height: 8px; border-radius: 50%; background: var(--garis); }
+.tab .titik.ok { background: var(--ok); }
+
+.panel { margin-top: 14px; display: grid; gap: 12px; }
+.field { background: var(--permukaan); border: 1px solid var(--garis); border-radius: 14px; padding: 12px 14px; min-width: 0; }
+.field-atas { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.field-atas strong { font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; }
+.hitung { font-family: var(--font-mono); font-size: .75rem; color: var(--redup); font-variant-numeric: tabular-nums; }
+.hitung.lewat { color: var(--pita); }
+.salin { margin-left: auto; border: 2px solid var(--tinta); background: var(--label); color: #2d1e19; border-radius: 8px; padding: 4px 12px; font-weight: 700; font-size: .9rem; }
+.salin.sudah { background: var(--ok); border-color: var(--ok); color: #fff; }
+.field pre { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--font-body); font-size: .95rem; }
+.catatan { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .9rem; }
+.catatan li { padding-left: 14px; position: relative; }
+.catatan li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--langit-tua); }
+.tandai { display: flex; align-items: center; gap: 10px; background: var(--permukaan); border: 1px dashed var(--garis); border-radius: 14px; padding: 12px 14px; font-weight: 700; }
+.tandai input { width: 22px; height: 22px; accent-color: var(--ok); }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--tinta); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: .9rem; max-width: calc(100% - 32px); }
+@media (prefers-reduced-motion: no-preference) { .item, .tombol, .salin { transition: transform .1s, background .15s, border-color .15s; } }
+</style>
+
+<div class="wrap">
+  <header class="atas">
+    <img src="maskot.png" alt="Maskot Ngomongin Sejarah">
+    <div>
+      <h1>Studio Posting<br><span>NGOMONGIN SEJARAH</span></h1>
+      <p>Video siap upload + caption tiap platform, tinggal salin.</p>
+    </div>
+  </header>
+  <main id="app"></main>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const KONTEN = /*DATA*/[];
+const app = document.getElementById("app");
+const toastEl = document.getElementById("toast");
+let unduhan = null;
+let tabAktif = 0;
+
+// --- status "sudah diposting" (per perangkat)
+function bacaStatus() { try { return JSON.parse(localStorage.getItem("ns-posted") || "{}"); } catch (e) { return {}; } }
+function simpanStatus(s) { try { localStorage.setItem("ns-posted", JSON.stringify(s)); } catch (e) {} }
+let status = bacaStatus();
+const kunci = (no, p) => no + "|" + p;
+
+function toast(pesan) {
+  toastEl.textContent = pesan; toastEl.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => toastEl.hidden = true, 2200);
+}
+function el(tag, attrs = {}, ...anak) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) e.setAttribute(k, v === true ? "" : v);
+  }
+  for (const a of anak.flat()) if (a != null) e.append(a.nodeType ? a : document.createTextNode(a));
+  return e;
+}
+const menit = d => Math.floor(d / 60) + ":" + String(d % 60).padStart(2, "0");
+const namaPendek = n => n.replace(" Shorts", "").replace(" Reels", "").replace("Komentar pertama (pin)", "Komentar pin");
+
+// --- beranda
+function beranda() {
+  document.title = "Studio Posting Ngomongin Sejarah";
+  const total = KONTEN.reduce((a, k) => a + k.platform.length, 0);
+  const sudah = KONTEN.reduce((a, k) => a + k.platform.filter(p => status[kunci(k.no, p.nama)]).length, 0);
+  app.replaceChildren(
+    el("p", { class: "ringkas" }, `${KONTEN.length} video siap posting`, " · ", `${sudah}/${total} platform sudah diposting`),
+    el("div", { class: "daftar" }, KONTEN.map(k => el("button", { class: "item", onclick: () => { location.hash = "k" + k.no; } },
+      el("img", { src: k.thumb, alt: "", loading: "lazy" }),
+      el("div", { class: "meta" },
+        el("div", { class: "no" }, `#${k.no} · ${menit(k.durasi)}`),
+        el("h2", {}, k.judul),
+        el("div", { class: "status" }, k.platform.filter(p => !p.nama.startsWith("Komentar")).map(p =>
+          el("span", { class: "chip" + (status[kunci(k.no, p.nama)] ? " ok" : "") }, namaPendek(p.nama))))
+      )
+    )))
+  );
+}
+
+// --- salin
+async function salin(teks, tombol) {
+  let ok = false;
+  try { await navigator.clipboard.writeText(teks); ok = true; } catch (e) {
+    const ta = el("textarea", { style: "position:fixed;opacity:0" }); ta.value = teks; document.body.append(ta); ta.select();
+    try { ok = document.execCommand("copy"); } catch (e2) {} ta.remove();
+  }
+  if (ok) {
+    tombol.textContent = "Tersalin ✓"; tombol.classList.add("sudah");
+    setTimeout(() => { tombol.textContent = "Salin"; tombol.classList.remove("sudah"); }, 1800);
+  } else {
+    const pre = tombol.closest(".field").querySelector("pre");
+    const r = document.createRange(); r.selectNodeContents(pre);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    toast("Teks sudah dipilih. Tekan lama lalu pilih Salin.");
+  }
+}
+
+// --- simpan video
+async function simpanVideo(k, tombol) {
+  if (!unduhan) { toast("Simpan video belum tersedia di tampilan ini."); return; }
+  tombol.disabled = true; tombol.textContent = "Menyiapkan…";
+  try {
+    const blob = await (await fetch(k.video)).blob();
+    await unduhan.save({ filename: k.nama_file, data: blob });
+    toast("Video disimpan");
+  } catch (e) {
+    if (e && e.code === "declined") toast("Batal disimpan");
+    else toast("Video gagal disimpan. Coba lagi sebentar.");
+  } finally { tombol.disabled = false; tombol.textContent = "Simpan video"; }
+}
+
+// --- detail
+function detail(k) {
+  document.title = k.judul + " · Studio Posting";
+  const tombolSimpan = el("button", { class: "tombol", id: "simpan-" + k.no, onclick: e => simpanVideo(k, e.currentTarget) }, "Simpan video");
+  tombolSimpan.hidden = !unduhan;
+  const tab = el("div", { class: "tab", role: "tablist" });
+  const panel = el("div", { class: "panel", role: "tabpanel" });
+
+  function gambarTab() {
+    tab.replaceChildren(...k.platform.map((p, i) => el("button", {
+      role: "tab", "aria-selected": String(i === tabAktif), onclick: () => { tabAktif = i; gambarTab(); gambarPanel(); }
+    }, el("span", { class: "titik" + (status[kunci(k.no, p.nama)] ? " ok" : "") }), namaPendek(p.nama))));
+  }
+  function gambarPanel() {
+    const p = k.platform[tabAktif];
+    const isi = p.isian.map(f => {
+      const n = [...f.teks].length;
+      const tombol = el("button", { class: "salin", onclick: e => salin(f.teks, e.currentTarget) }, "Salin");
+      return el("section", { class: "field" },
+        el("div", { class: "field-atas" },
+          el("strong", {}, f.label),
+          el("span", { class: "hitung" + (f.batas && n > f.batas ? " lewat" : "") }, f.batas ? `${n}/${f.batas}` : `${n} karakter`),
+          tombol),
+        el("pre", {}, f.teks));
+    });
+    const catatan = p.catatan.length ? el("section", { class: "field" },
+      el("div", { class: "field-atas" }, el("strong", {}, "Sebelum upload")),
+      el("ul", { class: "catatan" }, p.catatan.map(c => el("li", {}, el("b", {}, c.label + ": "), c.teks)))) : null;
+    const id = "tandai-" + k.no + "-" + tabAktif;
+    const cek = el("input", { type: "checkbox", id, checked: !!status[kunci(k.no, p.nama)], onchange: e => {
+      status[kunci(k.no, p.nama)] = e.target.checked; simpanStatus(status); gambarTab();
+      toast(e.target.checked ? `Ditandai sudah diposting di ${namaPendek(p.nama)}` : "Tanda dihapus");
+    } });
+    const tandai = p.nama.startsWith("Komentar") ? null : el("label", { class: "tandai", for: id }, cek, `Sudah diposting di ${namaPendek(p.nama)}`);
+    panel.replaceChildren(...isi, catatan, tandai);
+  }
+
+  app.replaceChildren(
+    el("button", { class: "kembali", onclick: () => { location.hash = ""; } }, "← Semua video"),
+    el("h2", { class: "judul-detail" }, k.judul),
+    el("div", { class: "pemutar" },
+      el("video", { src: k.video, poster: k.thumb, controls: true, playsinline: true, preload: "metadata" }),
+      el("div", { class: "aksi" },
+        tombolSimpan,
+        el("div", { class: "info" }, "File: ", el("b", {}, k.nama_file)),
+        el("div", { class: "info" }, "Format 9:16 · ", menit(k.durasi), " · TikTok, Reels, Shorts"),
+        k.cover ? el("div", {}, el("div", { class: "info" }, "Teks cover:"), el("span", { class: "cover" }, k.cover)) : null,
+        unduhan ? null : el("div", { class: "info" }, "Simpan video belum tersedia di sini. Ambil filenya dari folder ", el("b", {}, "konten/" + k.slug + "/shorts"), " di laptop.")
+      )
+    ),
+    tab, panel
+  );
+  gambarTab(); gambarPanel();
+  scrollTo(0, 0);
+}
+
+function rute() {
+  const k = KONTEN.find(x => location.hash === "#k" + x.no);
+  if (k) { tabAktif = 0; detail(k); } else beranda();
+}
+addEventListener("hashchange", rute);
+rute();
+
+(async () => {
+  try { unduhan = window.claude && window.claude.use ? await window.claude.use("downloads") : null; } catch (e) { unduhan = null; }
+  if (unduhan) rute();
+})();
+</script>

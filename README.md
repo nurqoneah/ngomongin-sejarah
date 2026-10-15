@@ -51,6 +51,16 @@ Hasil di `konten/001-perang-badar/shorts/`: `perang-badar-shorts.mp4` (1080x1920
 - `--musik file.mp3 --volume-musik 0.12` → tambah musik latar
 - `--pratinjau 5 20 40` → cuma simpan frame PNG di detik tsb (cepat, buat ngecek layout)
 
+## Studio Posting (web app)
+
+App buat posting dari HP: daftar video, putar & simpan video, tombol salin caption tiap platform, tanda "sudah diposting".
+
+```bash
+python tools/buat_app.py
+```
+
+Membaca semua `konten/*/caption.md` + video Shorts, lalu menulis `app/dist/` (tidak di-commit; video dikompres < 14 MB). Tampilan ada di `app/template.html`.
+
 ## Bikin konten baru
 
 1. Bikin folder `konten/00X-judul/`
