@@ -365,6 +365,16 @@ def vignette(img):
     img.alpha_composite(_vignette())
 
 
+def halus(titik, iterasi=3):
+    """Haluskan poligon tertutup (Chaikin) biar garis pantai tidak bersudut."""
+    for _ in range(iterasi):
+        baru = []
+        for (x0, y0), (x1, y1) in zip(titik, titik[1:] + titik[:1]):
+            baru += [(0.75 * x0 + 0.25 * x1, 0.75 * y0 + 0.25 * y1), (0.25 * x0 + 0.75 * x1, 0.25 * y0 + 0.75 * y1)]
+        titik = baru
+    return titik
+
+
 # ---------------------------------------------------------------- peta dunia
 
 @dataclass
@@ -378,6 +388,7 @@ class Peta:
     laut: list[list[tuple[float, float]]]  # poligon laut, daftar (lat, lon)
     gunung: list[tuple[float, float, float]] = field(default_factory=list)  # (lat, lon, radius_deg)
     seed: int = 3
+    darat: list[list[tuple[float, float]]] | None = None  # kalau diisi: semua laut kecuali poligon darat ini
 
     def __post_init__(self):
         self.lebar = int((self.lon1 - self.lon0) * self.skala)
@@ -389,10 +400,12 @@ class Peta:
 
     def _render(self) -> Image.Image:
         w, h = self.lebar, self.tinggi
-        mask_img = Image.new("L", (w, h), 0)
+        mask_img = Image.new("L", (w, h), 255 if self.darat else 0)
         md = ImageDraw.Draw(mask_img)
         for poli in self.laut:
-            md.polygon([self.px(a, b) for a, b in poli], fill=255)
+            md.polygon(halus([self.px(a, b) for a, b in poli]), fill=255)
+        for poli in self.darat or []:
+            md.polygon(halus([self.px(a, b) for a, b in poli]), fill=0)
         # garis pantai dibuat sedikit bergerigi
         mask = np.asarray(mask_img.filter(ImageFilter.GaussianBlur(3)), np.float32) / 255
         mask = (mask + (fbm(h, w, 64, self.seed + 50, 4) - 0.5) * 0.25) > 0.5
