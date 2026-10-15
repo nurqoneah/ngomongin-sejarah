@@ -6,11 +6,14 @@ Membaca konten/*/caption.md + video Shorts, lalu menulis app/dist/:
   thumb/<no>.jpg    (cover dari frame video)
   maskot.png
 
-    python tools/buat_app.py
+    python tools/buat_app.py                                  # untuk Artifact claude.ai -> app/dist
+    python tools/buat_app.py --target pages --keluar _site    # untuk GitHub Pages (dipakai GitHub Actions)
 """
 
+import argparse
 import json
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -96,7 +99,45 @@ def cover(src: Path, detik: float, dst: Path):
                     "-vf", "scale=540:-2", "-q:v", "4", str(dst)], check=True)
 
 
+# Artifact dibungkus skeleton otomatis; GitHub Pages butuh dokumen HTML lengkap + manifest PWA.
+KEPALA_PAGES = """<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7cc8e6">
+<meta name="description" content="Video Shorts Ngomongin Sejarah siap upload + caption tiap platform.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="ikon-192.png">
+<link rel="apple-touch-icon" href="ikon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+"""
+
+MANIFEST = {
+    "name": "Studio Posting Ngomongin Sejarah",
+    "short_name": "Ngomongin Sejarah",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#eef6f9",
+    "theme_color": "#7cc8e6",
+    "icons": [{"src": "ikon-192.png", "sizes": "192x192", "type": "image/png"},
+              {"src": "ikon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}],
+}
+
+
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--target", choices=["artifact", "pages"], default="artifact")
+    ap.add_argument("--keluar", type=Path, default=None, help="folder hasil (default app/dist)")
+    a = ap.parse_args()
+    global DIST
+    DIST = (a.keluar or DIST).resolve()
+    pages = a.target == "pages"
+
     (DIST / "video").mkdir(parents=True, exist_ok=True)
     (DIST / "thumb").mkdir(parents=True, exist_ok=True)
     semua = []
@@ -108,7 +149,10 @@ def main():
         no = folder.name.split("-")[0]
         data = parse_caption(cap.read_text(encoding="utf-8"))
         print(f"  {no} {data['judul']}")
-        kompres(videos[0], DIST / "video" / f"{no}.mp4")
+        if pages:  # GitHub Pages tidak membatasi 15 MB per file -> pakai kualitas asli
+            shutil.copy2(videos[0], DIST / "video" / f"{no}.mp4")
+        else:
+            kompres(videos[0], DIST / "video" / f"{no}.mp4")
         cover(videos[0], data["detik_cover"], DIST / "thumb" / f"{no}.jpg")
         data.update(no=no, slug=folder.name, video=f"video/{no}.mp4", thumb=f"thumb/{no}.jpg",
                     nama_file=videos[0].name, durasi=round(durasi(videos[0])))
@@ -119,6 +163,13 @@ def main():
 
     tpl = (ROOT / "app" / "template.html").read_text(encoding="utf-8")
     html = tpl.replace("/*DATA*/[]", json.dumps(semua, ensure_ascii=False))
+    if pages:
+        html = KEPALA_PAGES + html + "\n</body>\n</html>\n"
+        (DIST / "manifest.webmanifest").write_text(json.dumps(MANIFEST, ensure_ascii=False, indent=2), encoding="utf-8")
+        profil = Image.open(ROOT / "branding" / "foto-profil.png").convert("RGB")
+        for uk in (192, 512):
+            profil.resize((uk, uk), Image.LANCZOS).save(DIST / f"ikon-{uk}.png", optimize=True)
+        (DIST / ".nojekyll").write_text("", encoding="utf-8")
     (DIST / "index.html").write_text(html, encoding="utf-8")
     ukuran = sum(p.stat().st_size for p in DIST.rglob("*") if p.is_file()) / 1e6
     print(f"Selesai: {DIST} ({len(semua)} konten, {ukuran:.1f} MB)")

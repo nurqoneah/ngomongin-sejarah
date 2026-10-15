@@ -67,7 +67,7 @@ button:focus-visible, a:focus-visible, video:focus-visible { outline: 3px solid 
 @media (max-width: 420px) { .pemutar { grid-template-columns: 1fr; } .pemutar video { max-height: 62vh; justify-self: center; width: auto; } }
 .pemutar video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 12px; }
 .aksi { display: grid; gap: 10px; min-width: 0; }
-.tombol { border: 0; border-radius: 10px; padding: 12px 14px; font-weight: 700; background: var(--pita); color: #fff; box-shadow: 0 3px 0 var(--pita-tua); }
+.tombol { display: block; text-align: center; text-decoration: none; border: 0; border-radius: 10px; padding: 12px 14px; font-weight: 700; background: var(--pita); color: #fff; box-shadow: 0 3px 0 var(--pita-tua); }
 .tombol:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--pita-tua); }
 .tombol[disabled] { opacity: .6; cursor: progress; }
 .info { font-size: .85rem; color: var(--redup); }
@@ -115,6 +115,8 @@ const KONTEN = /*DATA*/[];
 const app = document.getElementById("app");
 const toastEl = document.getElementById("toast");
 let unduhan = null;
+// Di claude.ai simpan video lewat capability "downloads"; di GitHub Pages pakai link download biasa.
+const diArtifact = !!(window.claude && window.claude.use);
 let tabAktif = 0;
 
 // --- status "sudah diposting" (per perangkat)
@@ -194,8 +196,10 @@ async function simpanVideo(k, tombol) {
 // --- detail
 function detail(k) {
   document.title = k.judul + " · Studio Posting";
-  const tombolSimpan = el("button", { class: "tombol", id: "simpan-" + k.no, onclick: e => simpanVideo(k, e.currentTarget) }, "Simpan video");
-  tombolSimpan.hidden = !unduhan;
+  const tombolSimpan = diArtifact
+    ? el("button", { class: "tombol", id: "simpan-" + k.no, onclick: e => simpanVideo(k, e.currentTarget) }, "Simpan video")
+    : el("a", { class: "tombol", href: k.video, download: k.nama_file }, "Simpan video");
+  tombolSimpan.hidden = diArtifact && !unduhan;
   const tab = el("div", { class: "tab", role: "tablist" });
   const panel = el("div", { class: "panel", role: "tabpanel" });
 
@@ -238,7 +242,7 @@ function detail(k) {
         el("div", { class: "info" }, "File: ", el("b", {}, k.nama_file)),
         el("div", { class: "info" }, "Format 9:16 · ", menit(k.durasi), " · TikTok, Reels, Shorts"),
         k.cover ? el("div", {}, el("div", { class: "info" }, "Teks cover:"), el("span", { class: "cover" }, k.cover)) : null,
-        unduhan ? null : el("div", { class: "info" }, "Simpan video belum tersedia di sini. Ambil filenya dari folder ", el("b", {}, "konten/" + k.slug + "/shorts"), " di laptop.")
+        !diArtifact || unduhan ? null : el("div", { class: "info" }, "Simpan video belum tersedia di sini. Ambil filenya dari folder ", el("b", {}, "konten/" + k.slug + "/shorts"), " di laptop.")
       )
     ),
     tab, panel
