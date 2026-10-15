@@ -302,6 +302,11 @@ def a_korban(c):
     return img
 
 
+def batang(d, x, y, panjang, **kw):
+    if panjang >= 30:  # rounded_rectangle error kalau lebih kecil dari sudutnya
+        d.rounded_rectangle((x, y, x + panjang, y + 70), 12, **kw)
+
+
 def a_karbon(c):
     img = Image.new("RGBA", (W, H), (30, 28, 34, 255))
     d = ImageDraw.Draw(img, "RGBA")
@@ -313,12 +318,12 @@ def a_karbon(c):
     lebar = x1 - x0
     y1 = 690
     se.teks(d, (x0, y1 - 50), "Emisi BBM seluruh dunia, 1 tahun", 32, TINTA, anchor="lm", alpha=c.p(0.1, 0.18))
-    d.rounded_rectangle((x0, y1, x0 + lebar * c.p(0.12, 0.3), y1 + 70), 12, fill=(70, 70, 80, 255))
+    batang(d, x0, y1, lebar * c.p(0.12, 0.3), fill=(70, 70, 80, 255))
     y2 = 920
     se.teks(d, (x0, y2 - 50), "Gambut Indonesia, 1997", 32, TINTA, anchor="lm", alpha=c.p(0.35, 0.42))
     k = c.p(0.4, 0.75)
-    d.rounded_rectangle((x0, y2, x0 + lebar * 0.13 * k, y2 + 70), 12, fill=(200, 60, 30, 255))
-    d.rounded_rectangle((x0, y2, x0 + lebar * 0.40 * k, y2 + 70), 12, outline=(200, 60, 30, 255), width=5)
+    batang(d, x0, y2, lebar * 0.13 * k, fill=(200, 60, 30, 255))
+    batang(d, x0, y2, lebar * 0.40 * k, outline=(200, 60, 30, 255), width=5)
     se.teks(d, (540, 1080), "13 – 40 %", 110, MERAH, nama_font="caption", stroke=6, stroke_warna=(255, 255, 255),
             alpha=c.p(0.7, 0.8))
     se.teks(d, (540, 1180), "Page dkk., Nature (2002)", 28, (110, 90, 70), nama_font="tangan_tipis", alpha=c.p(0.75, 0.85))

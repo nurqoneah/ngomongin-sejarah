@@ -168,10 +168,18 @@ def main():
             "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", f"{total:.3f}", "-movflags", "+faststart", str(mp4)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     n = int(total * se.FPS)
-    for i in range(n):
-        proc.stdin.write(frame(i / se.FPS).tobytes())
-        if i % se.FPS == 0:
-            print(f"\r  render {i / se.FPS:5.1f}/{total:.1f} dtk", end="", flush=True)
+    try:
+        for i in range(n):
+            proc.stdin.write(frame(i / se.FPS).tobytes())
+            if i % se.FPS == 0:
+                print(f"\r  render {i / se.FPS:5.1f}/{total:.1f} dtk", end="", flush=True)
+    except BaseException:
+        # jangan tinggalkan video setengah jadi yang kelihatan "selesai"
+        proc.kill()
+        proc.wait()
+        mp4.unlink(missing_ok=True)
+        print(f"\nGAGAL di detik {i / se.FPS:.1f} — video dihapus.")
+        raise
     proc.stdin.close()
     proc.wait()
     print(f"\nSelesai: {mp4}")
