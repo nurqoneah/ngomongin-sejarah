@@ -53,13 +53,17 @@ Hasil di `konten/001-perang-badar/shorts/`: `perang-badar-shorts.mp4` (1080x1920
 
 ## Studio Posting (web app)
 
-App buat posting dari HP: daftar video, putar & simpan video, tombol salin caption tiap platform, tanda "sudah diposting".
+👉 **https://nurqoneah.github.io/ngomongin-sejarah/**
+
+App buat posting dari HP: daftar video, putar & simpan video, tombol salin caption tiap platform, tanda "sudah diposting". Bisa dipasang di layar utama HP ("Tambahkan ke Layar Utama").
+
+Setiap push ke `main` yang mengubah `konten/`, `app/`, atau `branding/` otomatis membangun ulang dan men-deploy app ini (GitHub Actions: `.github/workflows/pages.yml`).
 
 ```bash
 python tools/buat_app.py
 ```
 
-Membaca semua `konten/*/caption.md` + video Shorts, lalu menulis `app/dist/` (tidak di-commit; video dikompres < 14 MB). Tampilan ada di `app/template.html`.
+Membaca semua `konten/*/caption.md` + video Shorts, lalu menulis `app/dist/` (tidak di-commit; video dikompres < 14 MB untuk versi claude.ai). Versi GitHub Pages: `python tools/buat_app.py --target pages --keluar _site` (video kualitas asli). Tampilan ada di `app/template.html`.
 
 ## Bikin konten baru
 
