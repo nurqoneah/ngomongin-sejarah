@@ -12,6 +12,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 004 | [Gempa 1834 yang Meruntuhkan Istana Bogor](konten/004-gempa-istana-bogor-1834/naskah.md) | Shorts 9:16 ✅ |
 | 005 | [Krisis Minyak 1973: Ganjil Genap Isi Bensin](konten/005-krisis-minyak-1973/naskah.md) | Shorts 9:16 ✅ |
 | 006 | [Resolusi Jihad 1945: Kenapa Hari Santri 22 Oktober?](konten/006-resolusi-jihad-1945/naskah.md) | Shorts 9:16 ✅ |
+| 007 | [Indonesia Pernah Keluar dari PBB (1965–1966)](konten/007-indonesia-keluar-pbb-1965/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
