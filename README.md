@@ -14,6 +14,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 006 | [Resolusi Jihad 1945: Kenapa Hari Santri 22 Oktober?](konten/006-resolusi-jihad-1945/naskah.md) | Shorts 9:16 ✅ |
 | 007 | [Indonesia Pernah Keluar dari PBB (1965–1966)](konten/007-indonesia-keluar-pbb-1965/naskah.md) | Shorts 9:16 ✅ |
 | 008 | [Krisis Moneter 1997–1998](konten/008-krisis-moneter-1998/naskah.md) | Shorts 9:16 ✅ |
+| 009 | [Candi Borobudur yang Pernah Hilang](konten/009-candi-borobudur/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
