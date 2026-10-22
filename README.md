@@ -16,6 +16,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 008 | [Krisis Moneter 1997–1998](konten/008-krisis-moneter-1998/naskah.md) | Shorts 9:16 ✅ |
 | 009 | [Candi Borobudur yang Pernah Hilang](konten/009-candi-borobudur/naskah.md) | Shorts 9:16 ✅ |
 | 010 | [Sejarah Hujan Buatan (1946 – sekarang)](konten/010-sejarah-hujan-buatan/naskah.md) | Shorts 9:16 ✅ |
+| 011 | [Sejarah El Niño: dari Nelayan Peru sampai Super El Niño](konten/011-sejarah-el-nino/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
