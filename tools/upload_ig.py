@@ -98,8 +98,18 @@ def main():
         print(f"Token OK. Akun: @{akun.get('username')} ({akun.get('media_count', 0)} postingan)")
         return
 
-    folder, judul, caption = cari_konten(a.no)
-    video_url = f"{PAGES}/video/{a.no}.mp4"
+    posting(env, a.no, a.kirim, a.tanpa_feed)
+
+
+def sudah_diposting(folder):
+    log = folder / "posting.json"
+    return log.exists() and "instagram" in json.loads(log.read_text(encoding="utf-8"))
+
+
+def posting(env, no, kirim=False, tanpa_feed=False):
+    """Pratinjau atau posting satu konten ke Reels. Mengembalikan permalink kalau terposting."""
+    folder, judul, caption = cari_konten(no)
+    video_url = f"{PAGES}/video/{no}.mp4"
     log = folder / "posting.json"
     riwayat = json.loads(log.read_text(encoding="utf-8")) if log.exists() else {}
     if "instagram" in riwayat:
@@ -111,13 +121,13 @@ def main():
     print(f"Caption ({len(caption)} karakter):\n{'-' * 40}\n{caption}\n{'-' * 40}")
     if len(caption) > 2200:
         raise SystemExit("Caption lebih dari 2200 karakter, potong dulu di caption.md")
-    if not a.kirim:
+    if not kirim:
         print("Pratinjau saja. Tambahkan --kirim untuk posting.")
-        return
+        return None
 
     print("1/3 Mengirim video ke Instagram…")
     wadah = graph(env, "POST", f"{env['IG_USER_ID']}/media", media_type="REELS", video_url=video_url,
-                  caption=caption, share_to_feed="false" if a.tanpa_feed else "true")["id"]
+                  caption=caption, share_to_feed="false" if tanpa_feed else "true")["id"]
     print("2/3 Menunggu Instagram memproses video…")
     for _ in range(60):
         st = graph(env, "GET", wadah, fields="status_code,status")
@@ -136,6 +146,7 @@ def main():
     log.write_text(json.dumps(riwayat, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Tayang! {info.get('permalink')}")
     print("Jangan lupa: tambahkan label 'Dibuat dengan AI' manual di aplikasi IG (tidak tersedia lewat API).")
+    return info.get("permalink")
 
 
 if __name__ == "__main__":

@@ -84,6 +84,16 @@ python tools/upload_ig.py 004 --kirim   # posting ke Reels
 
 Pakai Instagram Graph API resmi; video diambil dari GitHub Pages, caption dari `caption.md`. Setup sekali: [docs/SETUP-INSTAGRAM.md](docs/SETUP-INSTAGRAM.md) (token disimpan di `.env`, tidak di-commit).
 
+Antrean harian (1 konten per hari, nomor terkecil yang belum diposting; taruh file `TAHAN` di folder konten untuk menahan):
+
+```bash
+python tools/posting_otomatis.py                 # lihat antrean
+python tools/posting_otomatis.py --kirim         # posting 1 konten berikutnya
+python tools/posting_otomatis.py --sudah 001 002 # tandai yang sudah diposting manual
+```
+
+Panduan hook & sudut topik: [docs/PANDUAN-HOOK.md](docs/PANDUAN-HOOK.md).
+
 ## Bikin konten baru
 
 1. Bikin folder `konten/00X-judul/`
