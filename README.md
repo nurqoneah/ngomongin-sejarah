@@ -19,6 +19,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 011 | [Sejarah El Niño: dari Nelayan Peru sampai Super El Niño](konten/011-sejarah-el-nino/naskah.md) | Shorts 9:16 ✅ |
 | 012 | [Sejarah Candu di Nusantara: dari VOC sampai Revolusi](konten/012-sejarah-candu-nusantara/naskah.md) | Shorts 9:16 ✅ |
 | 013 | [Sumpah Pemuda 1928: Kok Bisa Lahir Bahasa Persatuan?](konten/013-sumpah-pemuda-1928/naskah.md) | Shorts 9:16 ✅ |
+| 014 | [Cureng, Pesawat Merah Putih Pertama (27 Oktober 1945)](konten/014-cureng-merah-putih-1945/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
