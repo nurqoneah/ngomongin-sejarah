@@ -170,6 +170,8 @@ def main():
         for uk in (192, 512):
             profil.resize((uk, uk), Image.LANCZOS).save(DIST / f"ikon-{uk}.png", optimize=True)
         (DIST / ".nojekyll").write_text("", encoding="utf-8")
+        for f in (ROOT / "app" / "statis").glob("*.html"):  # kebijakan privasi, syarat layanan
+            shutil.copy2(f, DIST / f.name)
     (DIST / "index.html").write_text(html, encoding="utf-8")
     ukuran = sum(p.stat().st_size for p in DIST.rglob("*") if p.is_file()) / 1e6
     print(f"Selesai: {DIST} ({len(semua)} konten, {ukuran:.1f} MB)")
