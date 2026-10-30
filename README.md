@@ -97,6 +97,15 @@ python tools/posting_otomatis.py --sudah 001 002 # tandai yang sudah diposting m
 
 Panduan hook & sudut topik: [docs/PANDUAN-HOOK.md](docs/PANDUAN-HOOK.md).
 
+## Upload otomatis ke YouTube (private / draft)
+
+```bash
+python tools/upload_yt.py 015 --kirim          # upload sebagai private
+python tools/upload_yt.py --antrean --kirim    # konten berikutnya yang belum ada di YouTube
+```
+
+Pakai YouTube Data API v3; metadata dari bagian YouTube di `caption.md`. Setup & audit: [docs/SETUP-YOUTUBE.md](docs/SETUP-YOUTUBE.md).
+
 ## Bikin konten baru
 
 1. Bikin folder `konten/00X-judul/`

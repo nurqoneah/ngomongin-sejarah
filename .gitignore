@@ -5,3 +5,5 @@ __pycache__/
 konten/*/shorts/_cache/
 konten/*/shorts/pratinjau-*.png
 app/dist/
+client_secret*.json
+token_*.json

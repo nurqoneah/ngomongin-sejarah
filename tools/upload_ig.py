@@ -20,6 +20,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # emoji di caption aman di terminal Windows
 sys.path.insert(0, str(Path(__file__).parent))
 from buat_app import parse_caption  # noqa: E402
 

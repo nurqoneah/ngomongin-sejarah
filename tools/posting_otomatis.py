@@ -15,6 +15,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # emoji di caption aman di terminal Windows
 sys.path.insert(0, str(Path(__file__).parent))
 from upload_ig import ROOT, baca_env, cari_konten, posting, sudah_diposting  # noqa: E402
 
