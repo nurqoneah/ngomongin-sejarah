@@ -21,6 +21,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 013 | [Sumpah Pemuda 1928: Kok Bisa Lahir Bahasa Persatuan?](konten/013-sumpah-pemuda-1928/naskah.md) | Shorts 9:16 ✅ |
 | 014 | [Cureng, Pesawat Merah Putih Pertama (27 Oktober 1945)](konten/014-cureng-merah-putih-1945/naskah.md) | Shorts 9:16 ✅ |
 | 015 | [Asal-Usul Kata Sehari-hari: Sepatu Itu Bahasa Portugis?](konten/015-asal-usul-kata-serapan/naskah.md) | Shorts 9:16 ✅ |
+| 016 | [ORI 1946: Merdeka, Tapi Uangnya Masih Uang Jepang](konten/016-oeang-republik-indonesia-1946/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
