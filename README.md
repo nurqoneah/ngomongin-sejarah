@@ -23,6 +23,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 015 | [Asal-Usul Kata Sehari-hari: Sepatu Itu Bahasa Portugis?](konten/015-asal-usul-kata-serapan/naskah.md) | Shorts 9:16 ✅ |
 | 016 | [ORI 1946: Merdeka, Tapi Uangnya Masih Uang Jepang](konten/016-oeang-republik-indonesia-1946/naskah.md) | Shorts 9:16 ✅ |
 | 017 | [Asal-Usul Shell: Lahir dari Sumur Minyak di Langkat (1885)](konten/017-asal-usul-shell-langkat/naskah.md) | Shorts 9:16 ✅ |
+| 018 | [Anak Krakatau: Gunung yang Lahir dari Laut (1927)](konten/018-anak-krakatau-lahir-1927/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
