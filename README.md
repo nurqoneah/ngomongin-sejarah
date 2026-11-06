@@ -28,6 +28,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 020 | [Kenapa Orang Minang Merantau? Asal-Usul Tradisi Rantau](konten/020-tradisi-merantau-minang/naskah.md) | Shorts 9:16 ✅ |
 | 021 | [Pertempuran Surabaya 1945: Kita Kalah, Kok Jadi Hari Pahlawan?](konten/021-pertempuran-surabaya-1945/naskah.md) | Shorts 9:16 ✅ |
 | 022 | [Bandara Kemayoran: Landasan Pesawat yang Sekarang Jadi Jalan Raya](konten/022-bandara-kemayoran/naskah.md) | Shorts 9:16 ✅ |
+| 023 | [Hindia Belanda di Piala Dunia 1938: Satu-satunya Pertandingan Kita](konten/023-hindia-belanda-piala-dunia-1938/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
