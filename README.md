@@ -30,6 +30,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 022 | [Bandara Kemayoran: Landasan Pesawat yang Sekarang Jadi Jalan Raya](konten/022-bandara-kemayoran/naskah.md) | Shorts 9:16 ✅ |
 | 023 | [Hindia Belanda di Piala Dunia 1938: Satu-satunya Pertandingan Kita](konten/023-hindia-belanda-piala-dunia-1938/naskah.md) | Shorts 9:16 ✅ |
 | 024 | [Air Ledeng Batavia: Dulu Minum Air Kali, Lahir Kata "Ledeng"](konten/024-sejarah-air-ledeng-batavia/naskah.md) | Shorts 9:16 ✅ |
+| 025 | [Indonesia 0–0 Uni Soviet: Olimpiade Melbourne 1956](konten/025-indonesia-vs-uni-soviet-1956/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
