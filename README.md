@@ -33,6 +33,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 025 | [Indonesia 0–0 Uni Soviet: Olimpiade Melbourne 1956](konten/025-indonesia-vs-uni-soviet-1956/naskah.md) | Shorts 9:16 ✅ |
 | 026 | [Pahlawan Nasional Pertama: Abdul Muis, Wartawan Penulis "Salah Asuhan"](konten/026-pahlawan-nasional-pertama/naskah.md) | Shorts 9:16 ✅ |
 | 027 | [Listrik Ini Dulu Direbut: Sejarah Listrik di Indonesia (1897–1945)](konten/027-sejarah-listrik-indonesia/naskah.md) | Shorts 9:16 ✅ |
+| 028 | [Presiden Nyemprot Rumah Warga: Kenapa 12 November Hari Kesehatan Nasional?](konten/028-hari-kesehatan-nasional-malaria/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
