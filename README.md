@@ -34,6 +34,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 026 | [Pahlawan Nasional Pertama: Abdul Muis, Wartawan Penulis "Salah Asuhan"](konten/026-pahlawan-nasional-pertama/naskah.md) | Shorts 9:16 ✅ |
 | 027 | [Listrik Ini Dulu Direbut: Sejarah Listrik di Indonesia (1897–1945)](konten/027-sejarah-listrik-indonesia/naskah.md) | Shorts 9:16 ✅ |
 | 028 | [Presiden Nyemprot Rumah Warga: Kenapa 12 November Hari Kesehatan Nasional?](konten/028-hari-kesehatan-nasional-malaria/naskah.md) | Shorts 9:16 ✅ |
+| 029 | [Kiamat Hari Ini? Rumus Penduduk 1960 yang Meramal 13 November 2026](konten/029-ramalan-kiamat-2026/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
