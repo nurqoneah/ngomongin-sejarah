@@ -5,5 +5,11 @@
     "status": "private",
     "jadwal": null,
     "waktu_upload": "2026-11-06T08:00:10+07:00"
+  },
+  "facebook": {
+    "video_id": "1670345968098456",
+    "status": "draft",
+    "waktu": "2026-11-12T09:23:47",
+    "studio": "https://business.facebook.com/latest/content_management"
   }
 }

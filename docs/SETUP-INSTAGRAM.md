@@ -1,88 +1,70 @@
-# Setup auto-upload Instagram Reels
+# Setup auto-upload Instagram Reels & Facebook Reels
 
-Sekali setup (± 20–30 menit), lalu tiap video cukup:
-
-```bash
-python tools/upload_ig.py 004 --kirim
-```
-
-> Semua langkah login & token dilakukan sendiri. Token **jangan** dikirim ke chat atau di-commit; simpan hanya di file `.env` di laptop.
-> Tampilan situs Meta sering berubah — kalau nama tombol beda sedikit, cari yang paling mirip.
-
-## 1. Akun Instagram Profesional + Halaman Facebook
-
-1. Aplikasi IG → **Profil → ☰ → Jenis akun dan alat → Beralih ke akun profesional** → pilih **Kreator** (atau Bisnis).
-2. Buat **Halaman Facebook** "Ngomongin Sejarah" (kalau belum).
-3. Hubungkan: IG → **Edit profil → Halaman** → pilih Halaman Facebook tadi.
-   (Atau dari Meta Business Suite → Pengaturan → Akun Instagram → Hubungkan.)
-
-## 2. Bikin app di Meta for Developers
-
-1. Buka **https://developers.facebook.com** → login pakai akun Facebook yang mengelola Halaman tadi → **My Apps → Create App**.
-2. Nama app bebas, misalnya `Ngomongin Sejarah Uploader`.
-3. Pilih use case yang berhubungan dengan **Instagram** / **Manage messaging & content on Instagram** (kalau ditanya tipe: **Business**).
-4. Selesai — app ini cukup dalam **mode Development** karena cuma dipakai untuk akun sendiri (tidak perlu App Review).
-
-## 3. Buat access token
-
-1. Buka **https://developers.facebook.com/tools/explorer** (Graph API Explorer).
-2. Kanan atas: pilih app tadi. **User or Page:** *User Token*.
-3. Tambahkan izin (Permissions):
-   `instagram_basic`, `instagram_content_publish`, `pages_show_list`, `pages_read_engagement`, `business_management`
-4. Klik **Generate Access Token** → login → **centang Halaman & akun Instagram** Ngomongin Sejarah → izinkan.
-
-## 4. Cari IG_USER_ID
-
-Masih di Graph API Explorer, isi kolom query dengan:
-
-```
-me/accounts?fields=name,instagram_business_account{id,username}
-```
-
-Klik **Submit**. Angka di `instagram_business_account.id` itulah **IG_USER_ID**.
-
-## 5. Jadikan token jangka panjang (60 hari)
-
-Token dari Explorer cuma berlaku ± 1 jam.
-
-1. Klik ikon **ⓘ** di sebelah token → **Open in Access Token Tool**.
-2. Klik **Extend Access Token** di bagian bawah → salin token baru (berlaku ± 60 hari).
-
-## 6. Isi `.env`
-
-Di folder project, salin `.env.example` jadi `.env`, lalu isi:
-
-```
-IG_USER_ID=1784xxxxxxxxxxxx
-IG_ACCESS_TOKEN=EAAG...
-```
-
-## 7. Tes
+Sekali setup, lalu:
 
 ```bash
-python tools/upload_ig.py --cek
+python tools/upload_fb.py 023 --kirim   # Facebook Reels sebagai DRAFT (tidak tayang)
+python tools/upload_ig.py 023 --kirim   # Instagram Reels (langsung tayang — API IG tidak punya draft)
 ```
 
-Harus muncul `Token OK. Akun: @ngomonginsejarah ...`. Kalau error, pesan dari Instagram ditampilkan apa adanya.
+> Semua login dilakukan sendiri di browser. Token & App secret **jangan** dikirim ke chat atau di-commit; semuanya cuma ada di file `.env` di laptop.
+
+## Yang sudah disiapkan (November 2026)
+
+- Akun Facebook pribadi + Halaman **Ngomongin Sejarahh**, terhubung ke IG **@ngomonginnsejarah** (akun Profesional).
+- App Meta **Ngomongin Sejarah Uploader** (ID `1775932743518649`, mode Development, business portfolio "Ngomongin Sejarah").
+  - Use case: *Manage messaging & content on Instagram* + *Manage everything on your Page*.
+  - Izin aktif (Ready for testing): `instagram_basic`, `instagram_content_publish`, `pages_show_list`,
+    `pages_read_engagement`, `pages_manage_posts`, `business_management`.
+  - Mode Development cukup karena cuma dipakai untuk akun sendiri — tidak perlu App Review.
+
+## Login / ambil token
+
+1. `.env` → isi `META_APP_ID` dan `META_APP_SECRET`
+   (developers.facebook.com → app → **App settings → Basic → App secret → Show**).
+2. Jalankan:
+
+   ```bash
+   python tools/login_meta.py
+   ```
+
+   Browser membuka halaman izin Facebook → **Lanjutkan** → centang Halaman & akun IG → Simpan.
+   Script menukar login jadi token jangka panjang dan mengisi `IG_ACCESS_TOKEN`, `FB_PAGE_ID`,
+   `FB_PAGE_TOKEN`, `IG_USER_ID` di `.env` (token tidak pernah dicetak).
+3. Tes (tidak memposting apa pun):
+
+   ```bash
+   python tools/upload_ig.py --cek
+   python tools/upload_fb.py --cek
+   ```
+
+> Graph API Explorer tidak dipakai: di app model baru tombol *Generate Access Token* sering mati.
+> Izin harus ditambahkan dulu di **Use cases → Customize → Permissions and features → Add**.
 
 ## Cara pakai
 
 ```bash
-python tools/upload_ig.py 004           # pratinjau: cek video & caption yang akan dikirim
-python tools/upload_ig.py 004 --kirim   # posting ke Reels (+ tampil di feed)
+python tools/upload_fb.py 023                 # pratinjau
+python tools/upload_fb.py 023 --kirim         # draft Reels di Halaman
+python tools/upload_fb.py --antrean --kirim   # konten terbaru yang belum ada di Facebook
+
+python tools/upload_ig.py 023                 # pratinjau
+python tools/upload_ig.py 023 --kirim         # LANGSUNG TAYANG di Reels
 ```
 
-- Video diambil dari GitHub Pages (`/video/004.mp4`), jadi konten harus sudah di-push dan ter-deploy.
-- Caption diambil dari bagian **Instagram Reels** di `caption.md`.
-- Setelah tayang, link-nya dicatat di `konten/004-*/posting.json`, dan script menolak posting konten yang sama dua kali.
-- Batas Instagram: ± 50 postingan lewat API per 24 jam (jauh di atas kebutuhan kita).
+- Video diambil dari GitHub Pages (`/video/NNN.mp4`), jadi konten harus sudah di-push dan ter-deploy.
+- Caption dari bagian **Facebook Reels** / **Instagram Reels** di `caption.md`.
+- Hasilnya dicatat di `konten/NNN-*/posting.json`; script menolak upload konten yang sama dua kali.
+- Draft Facebook: **Meta Business Suite → Konten → Draf**, cek lalu publikasikan manual.
 
 ## Yang tidak bisa lewat API
 
-- Musik dari library IG (yang ada cuma suara narasi di video).
-- Label **"Dibuat dengan AI"** — tambahkan manual: buka Reels → ⋯ → Edit → Label AI.
+- Draft Instagram (API IG hanya bisa langsung publish).
+- Musik dari library IG/FB.
+- Label **"Dibuat dengan AI"** — tambahkan manual saat publish.
 - Gambar cover custom (cover diambil dari frame video).
 
-## Perpanjang token
+## Token kedaluwarsa
 
-Token jangka panjang habis ± 60 hari. Kalau `--cek` bilang token kedaluwarsa, ulangi langkah 3 & 5, lalu ganti `IG_ACCESS_TOKEN` di `.env`.
+`FB_PAGE_TOKEN` dibuat dari token jangka panjang, jadi tidak kedaluwarsa (kecuali password FB diganti
+atau izin app dicabut). Kalau `--cek` gagal, cukup jalankan lagi `python tools/login_meta.py`.

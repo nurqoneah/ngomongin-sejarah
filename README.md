@@ -90,14 +90,16 @@ python tools/buat_app.py
 
 Membaca semua `konten/*/caption.md` + video Shorts, lalu menulis `app/dist/` (tidak di-commit; video dikompres < 14 MB untuk versi claude.ai). Versi GitHub Pages: `python tools/buat_app.py --target pages --keluar _site` (video kualitas asli). Tampilan ada di `app/template.html`.
 
-## Upload otomatis ke Instagram Reels
+## Upload otomatis ke Facebook Reels (draft) & Instagram Reels
 
 ```bash
-python tools/upload_ig.py 004           # pratinjau
-python tools/upload_ig.py 004 --kirim   # posting ke Reels
+python tools/login_meta.py                  # login sekali, token & ID otomatis masuk .env
+python tools/upload_fb.py 023 --kirim       # Facebook Reels sebagai DRAFT
+python tools/upload_ig.py 004               # pratinjau IG
+python tools/upload_ig.py 004 --kirim       # posting ke IG Reels (langsung tayang)
 ```
 
-Pakai Instagram Graph API resmi; video diambil dari GitHub Pages, caption dari `caption.md`. Setup sekali: [docs/SETUP-INSTAGRAM.md](docs/SETUP-INSTAGRAM.md) (token disimpan di `.env`, tidak di-commit).
+Pakai Graph API resmi Meta; video diambil dari GitHub Pages, caption dari `caption.md`. Setup: [docs/SETUP-INSTAGRAM.md](docs/SETUP-INSTAGRAM.md) (token disimpan di `.env`, tidak di-commit).
 
 Antrean harian (1 konten per hari, nomor terkecil yang belum diposting; taruh file `TAHAN` di folder konten untuk menahan):
 
