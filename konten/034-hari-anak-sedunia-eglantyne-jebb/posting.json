@@ -1,0 +1,20 @@
+{
+  "youtube": {
+    "video_id": "POgEp41QqPg",
+    "url": "https://youtube.com/shorts/POgEp41QqPg",
+    "status": "private",
+    "jadwal": null,
+    "waktu_upload": "2026-11-20T11:25:17+07:00"
+  },
+  "facebook": {
+    "video_id": "2058916561488802",
+    "status": "draft",
+    "waktu": "2026-11-20T11:25:57",
+    "studio": "https://business.facebook.com/latest/content_management"
+  },
+  "instagram": {
+    "media_id": "18080891339455571",
+    "permalink": "https://www.instagram.com/reel/Df8y4GxBmp0/",
+    "waktu": "2026-11-20T04:27:40+0000"
+  }
+}
