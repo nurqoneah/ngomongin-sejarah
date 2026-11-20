@@ -39,6 +39,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 031 | [Badak Jawa: Dulu Dibayar Buat Dibunuh, Kenapa Cuma Tersisa di Ujung Kulon?](konten/031-badak-jawa-ujung-kulon/naskah.md) | Shorts 9:16 ✅ |
 | 032 | [Kretek: Rokok yang Dulu Dijual Sebagai "Obat" Sesak Napas (Kudus, ± 1880-an)](konten/032-kretek-obat-sesak-napas/naskah.md) | Shorts 9:16 ✅ |
 | 033 | [Bank Sentral Kita Dulu Milik Belanda: De Javasche Bank yang Akhirnya Dibeli (1828–1953)](konten/033-de-javasche-bank-dibeli/naskah.md) | Shorts 9:16 ✅ |
+| 034 | [Hari Anak Sedunia: Ditangkap Gara-Gara Foto Anak (Eglantyne Jebb, London 1919)](konten/034-hari-anak-sedunia-eglantyne-jebb/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
