@@ -42,6 +42,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 034 | [Hari Anak Sedunia: Ditangkap Gara-Gara Foto Anak (Eglantyne Jebb, London 1919)](konten/034-hari-anak-sedunia-eglantyne-jebb/naskah.md) | Shorts 9:16 ✅ |
 | 035 | [Dulu Bolos Kerja Bisa Dipidana: Kuli Kontrak Deli & Poenale Sanctie (1880–1941)](konten/035-kuli-kontrak-deli-1880/naskah.md) | Shorts 9:16 ✅ |
 | 036 | [Dua Klub Ini Lebih Tua dari Indonesia: PSM Makassar (1915) & VIJ/Persija (1928)](konten/036-klub-bola-lebih-tua-dari-indonesia/naskah.md) | Shorts 9:16 ✅ |
+| 037 | [Dulu Nenek Moyang Kita Nggak Kenal Cabai: Dari Amerika, Dibawa Portugis (Abad ke-16)](konten/037-sejarah-cabai-dari-amerika/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
