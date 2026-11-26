@@ -45,6 +45,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 037 | [Dulu Nenek Moyang Kita Nggak Kenal Cabai: Dari Amerika, Dibawa Portugis (Abad ke-16)](konten/037-sejarah-cabai-dari-amerika/naskah.md) | Shorts 9:16 ✅ |
 | 038 | [Kenapa Hari Guru Tanggal 25 November? Lahirnya PGRI, 100 Hari Setelah Proklamasi (1912–1945)](konten/038-hari-guru-nasional-pgri/naskah.md) | Shorts 9:16 ✅ |
 | 039 | [Jakarta Pernah Punya Trem, Terus Relnya Dikubur: Trem Batavia (1869–± 1962)](konten/039-trem-batavia-dikubur/naskah.md) | Shorts 9:16 ✅ |
+| 040 | [Pranata Mangsa: Petani Jawa Dulu Bisa Nebak Musim Hujan Tanpa Satelit (1855) & Cikal Bakal BMKG](konten/040-pranata-mangsa-kalender-hujan/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
