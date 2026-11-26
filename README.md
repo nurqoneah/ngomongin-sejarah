@@ -44,6 +44,7 @@ Konten sejarah yang diceritain dengan gaya ngobrol santai, pakai narasi suara Ba
 | 036 | [Dua Klub Ini Lebih Tua dari Indonesia: PSM Makassar (1915) & VIJ/Persija (1928)](konten/036-klub-bola-lebih-tua-dari-indonesia/naskah.md) | Shorts 9:16 ✅ |
 | 037 | [Dulu Nenek Moyang Kita Nggak Kenal Cabai: Dari Amerika, Dibawa Portugis (Abad ke-16)](konten/037-sejarah-cabai-dari-amerika/naskah.md) | Shorts 9:16 ✅ |
 | 038 | [Kenapa Hari Guru Tanggal 25 November? Lahirnya PGRI, 100 Hari Setelah Proklamasi (1912–1945)](konten/038-hari-guru-nasional-pgri/naskah.md) | Shorts 9:16 ✅ |
+| 039 | [Jakarta Pernah Punya Trem, Terus Relnya Dikubur: Trem Batavia (1869–± 1962)](konten/039-trem-batavia-dikubur/naskah.md) | Shorts 9:16 ✅ |
 
 ## Struktur
 
