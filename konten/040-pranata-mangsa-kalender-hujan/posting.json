@@ -1,0 +1,20 @@
+{
+  "youtube": {
+    "video_id": "nxieNWASm24",
+    "url": "https://youtube.com/shorts/nxieNWASm24",
+    "status": "private",
+    "jadwal": null,
+    "waktu_upload": "2026-11-27T07:10:29+07:00"
+  },
+  "facebook": {
+    "video_id": "3040115652990858",
+    "status": "draft",
+    "waktu": "2026-11-27T07:11:24",
+    "studio": "https://business.facebook.com/latest/content_management"
+  },
+  "instagram": {
+    "media_id": "18116842415273406",
+    "permalink": "https://www.instagram.com/reel/DgOXTyozqvs/",
+    "waktu": "2026-11-27T00:13:04+0000"
+  }
+}
